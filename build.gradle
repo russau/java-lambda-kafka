@@ -16,7 +16,8 @@ dependencies {
 
 task buildZip(type: Zip) {
     from compileJava
-    from processResources              
+    from processResources
+    from 'kafka.kafka-1.keystore.jks'
     into('lib') {
         from configurations.compileClasspath
     }           
