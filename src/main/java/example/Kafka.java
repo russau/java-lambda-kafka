@@ -28,7 +28,7 @@ public class Kafka {
 
         Properties settings = new Properties();
         settings.put("client.id", "basic-producer");
-        settings.put("bootstrap.servers", "ec2-34-219-201-195.us-west-2.compute.amazonaws.com:9093");
+        settings.put("bootstrap.servers", "ec2-54-202-36-111.us-west-2.compute.amazonaws.com:9093");
         settings.put("key.serializer",
             "org.apache.kafka.common.serialization.StringSerializer");
         settings.put("value.serializer",
@@ -36,8 +36,7 @@ public class Kafka {
         
         //configure the following three settings for SSL Encryption
         settings.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
-        // settings.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/opt/kafka-1-creds/kafka.kafka-1.truststore.jks");
-        settings.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "./kafka.kafka-1.keystore.jks");
+        settings.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "./kafka.kafka-1.truststore.jks");
         settings.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG,  "confluent");
 
         final KafkaProducer<String, String> producer = new KafkaProducer<>(settings);

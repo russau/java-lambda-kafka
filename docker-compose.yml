@@ -23,44 +23,14 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       KAFKA_DELETE_TOPIC_ENABLE: "true"
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-
       KAFKA_SSL_KEYSTORE_FILENAME: kafka.kafka-1.keystore.jks
       KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-1_keystore_creds
       KAFKA_SSL_KEY_CREDENTIALS: kafka-1_sslkey_creds
-      KAFKA_SSL_TRUSTSTORE_FILENAME: kafka.kafka-1.truststore.jks
-      KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka-1_truststore_creds
       KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: "HTTPS"
-      KAFKA_ADVERTISED_LISTENERS: EXTERNAL_SSL://ec2-34-221-127-98.us-west-2.compute.amazonaws.com:9093,INTERNAL://kafka-1:9092
+      KAFKA_ADVERTISED_LISTENERS: EXTERNAL_SSL://ec2-54-202-36-111.us-west-2.compute.amazonaws.com:9093,INTERNAL://ec2-54-202-36-111.us-west-2.compute.amazonaws.com:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL_SSL:SSL,INTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
 
-  # kafka:
-  #   image: "confluentinc/cp-enterprise-kafka:5.3.0"
-  #   hostname: kafka
-  #   networks:
-  #     - confluent
-  #   ports:
-  #     - 9093:9093
-  #     - 9092:9092
-  #   volumes:
-  #     - $PWD/kafka-1-creds:/etc/kafka/secrets
-  #   environment:
-  #     KAFKA_BROKER_ID: 101
-  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-  #     KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
-  #     KAFKA_DELETE_TOPIC_ENABLE: "true"
-  #     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-  #     KAFKA_LISTENERS: LISTENER_INT://0.0.0.0:9092,LISTENER_EXT://0.0.0.0:9093
-  #     KAFKA_ADVERTISED_LISTENERS: LISTENER_INT://kafka:9092,LISTENER_EXT://kafka-1:9093
-  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_INT:PLAINTEXT,LISTENER_EXT:SSL
-  #     KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_INT
-  #     KAFKA_SSL_KEYSTORE_FILENAME: kafka.kafka-1.keystore.jks
-  #     KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka-1_keystore_creds
-  #     KAFKA_SSL_KEY_CREDENTIALS: kafka-1_sslkey_creds
-  #     KAFKA_SSL_TRUSTSTORE_FILENAME: kafka.kafka-1.truststore.jks
-  #     KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka-1_truststore_creds
-  #     KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: "HTTPS"
 
 networks:
   confluent:

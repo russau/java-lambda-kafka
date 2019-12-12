@@ -10,7 +10,7 @@ i=kafka-1
 # keystore now contains "kafka-1, Dec 10, 2019, PrivateKeyEntry"
 keytool -genkey -noprompt \
 				 -alias $i \
-				 -dname "CN=ec2-34-219-201-195.us-west-2.compute.amazonaws.com,OU=TEST,O=CONFLUENT,L=PaloAlto,S=Ca,C=US" \
+				 -dname "CN=ec2-54-202-36-111.us-west-2.compute.amazonaws.com,OU=TEST,O=CONFLUENT,L=PaloAlto,S=Ca,C=US" \
                                  -ext san=dns:$i \
 				 -keystore kafka.$i.keystore.jks \
 				 -keyalg RSA \
